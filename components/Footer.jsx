@@ -19,15 +19,15 @@ export default function Footer() {
           <nav className="flex justify-center space-x-4 text-sm font-medium sm:justify-start">
             <a href="" className="hover:text-accent">
               {" "}
-              FAQs{" "}
+              Features{" "}
             </a>
             <a href="" className="hover:text-accent">
               {" "}
-              Contact{" "}
+              Pricing{" "}
             </a>
             <a href="" className="hover:text-accent">
               {" "}
-              Returns Policy{" "}
+              About{" "}
             </a>
           </nav>
 
@@ -78,7 +78,7 @@ export default function Footer() {
 
             <a
               className="p-2 border rounded-full border-white/25 hover:text-accent"
-              href=""
+              href="https://twitter.com/py_bash1"
               target="_blank"
               rel="noreferrer"
             >

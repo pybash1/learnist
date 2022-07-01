@@ -11,16 +11,13 @@ export default function Navbar() {
 
           <nav className="hidden space-x-8 text-sm font-medium md:flex">
             <a className="text-white hover:text-accent transition ease-in-out" href="">
+              Features
+            </a>
+            <a className="text-white hover:text-accent transition ease-in-out" href="">
+              Pricing
+            </a>
+            <a className="text-white hover:text-accent transition ease-in-out" href="">
               About
-            </a>
-            <a className="text-white hover:text-accent transition ease-in-out" href="">
-              Blog
-            </a>
-            <a className="text-white hover:text-accent transition ease-in-out" href="">
-              Projects
-            </a>
-            <a className="text-white hover:text-accent transition ease-in-out" href="">
-              Contact
             </a>
           </nav>
 
