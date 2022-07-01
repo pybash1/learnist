@@ -1,3 +1,61 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.st0 {
+  fill: #272c36;
+}
+.st1 {
+  fill: #b5dfea;
+}
+.st2 {
+  opacity: 0.55;
+  fill: #90cedd;
+}
+.st3 {
+  fill: #d7f0f9;
+}
+.st4 {
+  fill: #0582c1;
+}
+.st5 {
+  fill: #79c9e8;
+}
+.st6 {
+  fill: #ffbf4d;
+}
+.st7 {
+  fill: #00668e;
+}
+.st8 {
+  fill: #05556d;
+}
+.st9 {
+  fill: #f98d3d;
+}
+.st10 {
+  fill: #ed701b;
+}
+.st11 {
+  fill: none;
+}
+.st12 {
+  fill: #efaa3a;
+}
+.st13 {
+  opacity: 0.29;
+  fill: #f98d2b;
+}
+.st14 {
+  fill: #49b4d6;
+}
+.st15 {
+  fill: #ff9f50;
+}
+.st16 {
+  fill: #f77e2d;
+}
+.st17 {
+  opacity: 0.55;
+  fill: url(#SVGID_1_);
+}
