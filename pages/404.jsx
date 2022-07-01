@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 export default function NotFound() {
   return (
     <>
@@ -14,9 +16,11 @@ export default function NotFound() {
               <p className="text-gray-400">Try searching again or use the Go Back button below.</p>
             </div>
             <div className="mb-20 md:mb-0">
-              <button className="text-lg font-light outline-none focus:outline-none transform transition-all text-accent hover:text-accent/75">
-                <i className="mdi mdi-arrow-left mr-2"></i>Go Back
-              </button>
+              <Link href="/">
+                <a className="text-lg font-light outline-none focus:outline-none transform transition-all text-accent hover:text-accent/75">
+                  Go Back
+                </a>
+              </Link>
             </div>
           </div>
           <div className="w-full md:w-1/2 text-center">

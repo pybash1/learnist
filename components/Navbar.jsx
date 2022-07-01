@@ -1,4 +1,4 @@
-import Image from "next/image";
+import Link from "next/link";
 
 export default function Navbar() {
   return (
@@ -10,15 +10,21 @@ export default function Navbar() {
           </div>
 
           <nav className="hidden space-x-8 text-sm font-medium md:flex">
-            <a className="text-white hover:text-accent transition ease-in-out" href="">
-              Features
-            </a>
-            <a className="text-white hover:text-accent transition ease-in-out" href="">
-              Pricing
-            </a>
-            <a className="text-white hover:text-accent transition ease-in-out" href="">
-              About
-            </a>
+            <Link href="/#features">
+              <a className="text-white hover:text-accent transition ease-in-out">
+                Features
+              </a>  
+            </Link>
+            <Link href="/pricing">
+              <a className="text-white hover:text-accent transition ease-in-out">
+                Pricing
+              </a>  
+            </Link>
+            <Link href="https://github.com/pybash1">
+              <a className="text-white hover:text-accent transition ease-in-out">
+                About
+              </a>  
+            </Link>
           </nav>
 
           <div className="items-center justify-end flex-1 hidden space-x-4 sm:flex">
