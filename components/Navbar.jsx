@@ -13,34 +13,32 @@ export default function Navbar() {
             <Link href="/#features">
               <a className="text-white hover:text-accent transition ease-in-out">
                 Features
-              </a>  
+              </a>
             </Link>
             <Link href="/pricing">
               <a className="text-white hover:text-accent transition ease-in-out">
                 Pricing
-              </a>  
+              </a>
             </Link>
             <Link href="https://github.com/pybash1">
               <a className="text-white hover:text-accent transition ease-in-out">
                 About
-              </a>  
+              </a>
             </Link>
           </nav>
 
           <div className="items-center justify-end flex-1 hidden space-x-4 sm:flex">
-            <a
-              className="px-5 py-2 text-sm font-medium text-white bg-primary hover:bg-gray-500 transition ease-in-out rounded-lg"
-              href=""
-            >
-              Log in
-            </a>
+            <Link href="/login">
+              <a className="px-5 py-2 text-sm font-medium text-white bg-primary hover:bg-gray-500 transition ease-in-out rounded-lg">
+                Log in
+              </a>
+            </Link>
 
-            <a
-              className="px-5 py-2 text-sm font-medium text-white bg-accent hover:bg-accent/75 transition ease-in-out rounded-lg"
-              href=""
-            >
-              Sign up
-            </a>
+            <Link href="/onboarding?plan=0">
+              <a className="px-5 py-2 text-sm font-medium text-white bg-accent hover:bg-accent/75 transition ease-in-out rounded-lg">
+                Sign up
+              </a>
+            </Link>
           </div>
 
           <div className="lg:hidden">
