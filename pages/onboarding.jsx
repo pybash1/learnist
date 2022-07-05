@@ -1,16 +1,57 @@
 import { useRouter } from "next/router";
 import Link from "next/link";
 import Navbar from "../components/Navbar";
+import { useEffect, useState } from "react";
+import { getCookie, setCookie } from "cookies-next";
 
 export default function Onboarding() {
   const router = useRouter();
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
 
   const signup = (e) => {
-    router.push("/dashboard");
+    e.preventDefault();
+    fetch(process.env.NEXT_PUBLIC_API_URL + "/register", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        email,
+        password,
+      }),
+    }).then((res) =>
+      res.json().then((data) => {
+        if (data.token) {
+          setCookie("token", data.token);
+          router.push("/dashboard");
+        } else {
+          console.log(data);
+        }
+      })
+    );
   };
 
   const { plan } = router.query;
-  const plan_ = plan == 0 ? "Free" : plan == 1 ? "Basic" : plan == 2 ? "Pro" : plan == 3 ? "Teacher's" : -1;
+  const plan_ = plan == 0 ? "Free" : plan == 1 ? "Teacher" : "Free";
+
+  useEffect(() => {
+    let token = getCookie("token");
+
+    if (token) {
+      fetch(process.env.NEXT_PUBLIC_API_URL + "/user", {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: "Bearer " + token,
+        },
+      }).then((res) => {
+        if (res.status === 200) {
+          router.push("/dashboard");
+        }
+      });
+    }
+  });
 
   return (
     <div className="bg-primary min-h-screen">
@@ -38,6 +79,10 @@ export default function Onboarding() {
 
               <div className="relative mt-1">
                 <input
+                  value={email}
+                  onChange={(e) => {
+                    setEmail(e.target.value);
+                  }}
                   type="email"
                   id="email"
                   className="w-full p-4 pr-12 text-sm border-gray-200 rounded-lg shadow-sm bg-primary text-white"
@@ -64,12 +109,19 @@ export default function Onboarding() {
             </div>
 
             <div>
-              <label htmlFor="password" className="text-sm font-medium text-white">
+              <label
+                htmlFor="password"
+                className="text-sm font-medium text-white"
+              >
                 Password
               </label>
 
               <div className="relative mt-1">
                 <input
+                  value={password}
+                  onChange={(e) => {
+                    setPassword(e.target.value);
+                  }}
                   type="password"
                   id="password"
                   className="w-full p-4 pr-12 text-sm border-gray-200 rounded-lg shadow-sm bg-primary text-white"
@@ -101,25 +153,22 @@ export default function Onboarding() {
               </div>
             </div>
 
-            {
-            plan_ === -1
-            ?
-            <button
+            {plan_ === "Teacher" ? (
+              <button
                 type="button"
                 onClick={null}
                 className="block w-full px-5 py-3 text-sm font-medium text-white bg-gray-400 rounded-lg transition ease-in-out cursor-not-allowed"
-            >
-                Invalid Plan Selected
-            </button>
-            :
-            <button
+              >
+                Teacher's Plan is Coming Soon
+              </button>
+            ) : (
+              <button
                 type="submit"
                 className="block w-full px-5 py-3 text-sm font-medium text-white bg-accent hover:bg-accent/75 rounded-lg transition ease-in-out"
-            >
+              >
                 {`Sign Up with ${plan_} Plan`}
-            </button>
-            }
-            
+              </button>
+            )}
 
             <p className="text-sm text-center text-gray-500">
               Already have an account?{" "}

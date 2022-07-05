@@ -1,14 +1,54 @@
 import { useRouter } from "next/router";
 import Navbar from "../components/Navbar";
 import Link from "next/link";
+import { useState, useEffect } from "react";
+import { getCookie, setCookie } from "cookies-next";
 
 export default function Login() {
-    const router = useRouter();
+  const router = useRouter();
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
+  useEffect(() => {
+    let token = getCookie("token");
+
+    if (token) {
+      fetch(process.env.NEXT_PUBLIC_API_URL + "/user", {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: "Bearer " + token,
+        },
+      }).then((res) => {
+        if (res.status === 200) {
+          router.push("/dashboard");
+        }
+      });
+    }
+  });
 
   const login = (e) => {
     e.preventDefault();
-    router.push("/dashboard")
-  }
+    fetch(process.env.NEXT_PUBLIC_API_URL + "/login", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        email,
+        password,
+      }),
+    }).then((res) =>
+      res.json().then((data) => {
+        if (data.token) {
+          setCookie("token", data.token);
+          router.push("/dashboard");
+        } else {
+          console.log(data);
+        }
+      })
+    );
+  };
 
   return (
     <div className="bg-primary min-h-screen">
@@ -23,8 +63,13 @@ export default function Login() {
             Login to access your homeworks, classes, notes, etc.
           </p>
 
-          <form onSubmit={login} className="p-8 mt-6 mb-0 space-y-4 rounded-lg shadow-2xl bg-neutral">
-            <p className="text-lg font-medium text-white">Login to your account</p>
+          <form
+            onSubmit={login}
+            className="p-8 mt-6 mb-0 space-y-4 rounded-lg shadow-2xl bg-neutral"
+          >
+            <p className="text-lg font-medium text-white">
+              Login to your account
+            </p>
 
             <div>
               <label htmlFor="email" className="text-sm font-medium text-white">
@@ -33,6 +78,10 @@ export default function Login() {
 
               <div className="relative mt-1">
                 <input
+                  value={email}
+                  onChange={(e) => {
+                    setEmail(e.target.value);
+                  }}
                   type="email"
                   id="email"
                   className="w-full p-4 pr-12 text-sm border-gray-200 rounded-lg shadow-sm bg-primary text-white"
@@ -59,12 +108,19 @@ export default function Login() {
             </div>
 
             <div>
-              <label htmlFor="password" className="text-sm font-medium text-white">
+              <label
+                htmlFor="password"
+                className="text-sm font-medium text-white"
+              >
                 Password
               </label>
 
               <div className="relative mt-1">
                 <input
+                  value={password}
+                  onChange={(e) => {
+                    setPassword(e.target.value);
+                  }}
                   type="password"
                   id="password"
                   className="w-full p-4 pr-12 text-sm border-gray-200 rounded-lg shadow-sm bg-primary text-white"
@@ -106,9 +162,7 @@ export default function Login() {
             <p className="text-sm text-center text-gray-500">
               No account yet?{" "}
               <Link href="/onboarding?plan=0">
-                <a className="underline">
-                    Sign up
-                </a>
+                <a className="underline">Sign up</a>
               </Link>
             </p>
           </form>
