@@ -19,7 +19,7 @@ export default function Pricing() {
           link="/onboarding?plan=1"
           plan="Teacher's Plan"
           description="Best for teachers or institutions"
-          price="5.99"
+          price="0.00"
           features={["Everything in Free +", "Manage Students", "Manage Classes", "Manage Assignments"]}
           button="Get Started as a Teacher"
         />
