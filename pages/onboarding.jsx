@@ -3,6 +3,7 @@ import Link from "next/link";
 import Navbar from "../components/Navbar";
 import { useEffect, useState } from "react";
 import { getCookie, setCookie } from "cookies-next";
+import toast, { Toaster } from "react-hot-toast";
 
 export default function Onboarding() {
   const router = useRouter();
@@ -24,9 +25,12 @@ export default function Onboarding() {
       res.json().then((data) => {
         if (data.token) {
           setCookie("token", data.token);
-          router.push("/dashboard");
+          router.push("/dashboard?success=Created account successfully!");
         } else {
-          console.log(data);
+          toast.error(
+            data?.error.charAt(0).toUpperCase() + data?.error.substr(1) + "!" ||
+              "Unknown error occured!"
+          );
         }
       })
     );
@@ -55,6 +59,15 @@ export default function Onboarding() {
 
   return (
     <div className="bg-primary min-h-screen">
+      <Toaster
+        position="bottom-center"
+        toastOptions={{
+          style: {
+            background: "#344047",
+            color: "#6a97c7",
+          },
+        }}
+      />
       <Navbar />
       <div className="max-w-screen-xl px-4 py-16 mx-auto sm:px-6 lg:px-8">
         <div className="max-w-lg mx-auto">

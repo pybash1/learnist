@@ -23,7 +23,7 @@ export default function Sidebar() {
 
   const logout = () => {
     deleteCookie("token");
-    router.push("/login");
+    router.push("/login?success=Successfully logged out!");
   };
 
   return (

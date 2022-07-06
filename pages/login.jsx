@@ -3,11 +3,14 @@ import Navbar from "../components/Navbar";
 import Link from "next/link";
 import { useState, useEffect } from "react";
 import { getCookie, setCookie } from "cookies-next";
+import toast, { Toaster } from "react-hot-toast";
 
 export default function Login() {
   const router = useRouter();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+
+  const { error, success } = router.query;
 
   useEffect(() => {
     let token = getCookie("token");
@@ -27,6 +30,14 @@ export default function Login() {
     }
   });
 
+  useEffect(() => {
+    if (error) {
+      toast.error(error);
+    } else if (success) {
+      toast.success(success);
+    }
+  }, []);
+
   const login = (e) => {
     e.preventDefault();
     fetch(process.env.NEXT_PUBLIC_API_URL + "/login", {
@@ -42,9 +53,12 @@ export default function Login() {
       res.json().then((data) => {
         if (data.token) {
           setCookie("token", data.token);
-          router.push("/dashboard");
+          router.push("/dashboard?success=Logged in successfully!");
         } else {
-          console.log(data);
+          toast.error(
+            data?.error.charAt(0).toUpperCase() + data?.error.substr(1) + "!" ||
+              "Unknown error occured!"
+          );
         }
       })
     );
@@ -52,6 +66,15 @@ export default function Login() {
 
   return (
     <div className="bg-primary min-h-screen">
+      <Toaster
+        position="bottom-center"
+        toastOptions={{
+          style: {
+            background: "#344047",
+            color: "#6a97c7",
+          },
+        }}
+      />
       <Navbar />
       <div className="max-w-screen-xl px-4 py-16 mx-auto sm:px-6 lg:px-8">
         <div className="max-w-lg mx-auto">
