@@ -59,16 +59,14 @@ export default function Footer() {
               </li>
 
               <li>
-                <Link href="/#testimonials">
-                  <a className="text-white transition hover:text-white/75">
-                    Testimonials
+                  <a href="https://townhall.hashnode.com/planetscale-hackathon" target="blank_" rel="noopener noreferrer" className="text-white transition hover:text-white/75">
+                    Hashnode
                   </a>
-                </Link>
               </li>
 
               <li>
-                <a className="text-white transition hover:text-white/75" target="blank_" rel="noreferrer noopener" href="https://github.com/pybash1">
-                  Other Projects
+                <a className="text-white transition hover:text-white/75" target="blank_" rel="noreferrer noopener" href="https://planetscale.com">
+                  PlanetScale
                 </a>
               </li>
             </ul>
