@@ -4,3 +4,4 @@ python-dotenv
 sqlalchemy
 bcrypt
 uvicorn
+mysqlclient
