@@ -9,30 +9,32 @@ export default function Features() {
             </h2>
 
             <p className="mt-4 text-gray-400">
-              Not getting good grades? Having a hard time managing your schedule? Don&apos;t worry! We go you covered with our huge suite of schedule management, homeworks, tasks, teachers, grades, and everything!
+              Not getting good grades? Having a hard time managing your
+              schedule? Don&apos;t worry! We go you covered with our huge suite
+              of schedule management, homeworks, tasks, teachers, grades, and
+              everything!
             </p>
 
-            <a
-              className="inline-flex items-center px-8 py-3 mt-8 text-white bg-accent border border-accent rounded hover:bg-accent/75 hover:border-accent/75 active:text-accent focus:outline-none focus:ring"
-              href="/onboarding"
-            >
-              <span className="text-sm font-medium"> Get Started </span>
+            <Link href="/onboarding">
+              <a className="inline-flex items-center px-8 py-3 mt-8 text-white bg-accent border border-accent rounded hover:bg-accent/75 hover:border-accent/75 active:text-accent focus:outline-none focus:ring">
+                <span className="text-sm font-medium"> Get Started </span>
 
-              <svg
-                className="w-5 h-5 ml-3"
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="2"
-                  d="M17 8l4 4m0 0l-4 4m4-4H3"
-                />
-              </svg>
-            </a>
+                <svg
+                  className="w-5 h-5 ml-3"
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth="2"
+                    d="M17 8l4 4m0 0l-4 4m4-4H3"
+                  />
+                </svg>
+              </a>
+            </Link>
           </div>
 
           <div className="grid grid-cols-2 gap-4 sm:grid-cols-3">

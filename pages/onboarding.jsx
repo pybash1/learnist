@@ -159,7 +159,7 @@ export default function Onboarding() {
                 onClick={null}
                 className="block w-full px-5 py-3 text-sm font-medium text-white bg-gray-400 rounded-lg transition ease-in-out cursor-not-allowed"
               >
-                Teacher's Plan is Coming Soon
+                Teacher&apos;s Plan is Coming Soon
               </button>
             ) : (
               <button

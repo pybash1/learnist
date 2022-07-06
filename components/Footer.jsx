@@ -10,12 +10,13 @@ export default function Footer() {
               Want to Try?
             </p>
 
-            <a
-              className="inline-block px-12 py-3 mt-8 text-sm font-medium border rounded-full border-white/25 hover:bg-white hover:text-accent"
-              href="/onboarding"
-            >
-              Get Started
-            </a>
+            <Link href="/onboarding">
+              <a
+                className="inline-block px-12 py-3 mt-8 text-sm font-medium border rounded-full border-white/25 hover:bg-white hover:text-accent"
+              >
+                Get Started
+              </a>
+            </Link>
           </div>
         </div>
       </footer>
