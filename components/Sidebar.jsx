@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { deleteCookie, getCookie } from "cookies-next";
 import { useRouter } from "next/router";
+import Link from "next/link";
 
 export default function Sidebar() {
   const [user, setUser] = useState(null);
@@ -34,27 +35,26 @@ export default function Sidebar() {
         </span>
 
         <nav className="flex flex-col mt-6 space-y-1">
-          <a
-            href=""
-            className="flex items-center px-4 py-2 text-white bg-primary rounded-lg"
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              className="h-5 w-5"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-              strokeWidth={2}
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                d="M3 10h18M3 14h18m-9-4v8m-7 0h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"
-              />
-            </svg>
+          <Link href="/dashboard">
+            <a className="flex items-center px-4 py-2 text-white bg-primary rounded-lg">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                className="h-5 w-5"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                strokeWidth={2}
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="M3 10h18M3 14h18m-9-4v8m-7 0h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"
+                />
+              </svg>
 
-            <span className="ml-3 text-sm font-medium"> Dashboard </span>
-          </a>
+              <span className="ml-3 text-sm font-medium"> Dashboard </span>
+            </a>
+          </Link>
 
           <details className="group">
             <summary className="flex items-center px-4 py-2 text-gray-300 rounded-lg cursor-pointer hover:bg-primary hover:text-white">
@@ -95,95 +95,100 @@ export default function Sidebar() {
             </summary>
 
             <nav className="mt-1.5 ml-8 flex flex-col">
-              <a
-                href=""
-                className="flex items-center px-4 py-2 text-gray-300 rounded-lg hover:bg-primary hover:text-white"
-              >
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  className="h-5 w-5"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                  strokeWidth={2}
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    d="M4 6h16M4 12h16M4 18h16"
-                  />
-                </svg>
+              <Link href="/todo">
+                <a className="flex items-center px-4 py-2 text-gray-300 rounded-lg hover:bg-primary hover:text-white">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    className="h-5 w-5"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                    strokeWidth={2}
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      d="M4 6h16M4 12h16M4 18h16"
+                    />
+                  </svg>
 
-                <span className="ml-3 text-sm font-medium"> To-Do&apos;s </span>
-              </a>
+                  <span className="ml-3 text-sm font-medium">
+                    {" "}
+                    To-Do&apos;s{" "}
+                  </span>
+                </a>
+              </Link>
 
-              <a
-                href=""
-                className="flex items-center px-4 py-2 text-gray-300 rounded-lg hover:bg-primary hover:text-white"
-              >
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  className="h-5 w-5"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                  strokeWidth={2}
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"
-                  />
-                </svg>
+              <Link href="/timer">
+                <a className="flex items-center px-4 py-2 text-gray-300 rounded-lg hover:bg-primary hover:text-white">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    className="h-5 w-5"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                    strokeWidth={2}
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"
+                    />
+                  </svg>
 
-                <span className="ml-3 text-sm font-medium"> Timer </span>
-              </a>
+                  <span className="ml-3 text-sm font-medium"> Timer </span>
+                </a>
+              </Link>
             </nav>
           </details>
 
-          <a
-            href=""
-            className="flex items-center px-4 py-2 text-gray-300 rounded-lg hover:bg-primary hover:text-white"
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              className="h-5 w-5"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-              strokeWidth={2}
+          <Link href="/homeworks">
+            <a
+              href=""
+              className="flex items-center px-4 py-2 text-gray-300 rounded-lg hover:bg-primary hover:text-white"
             >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
-              />
-            </svg>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                className="h-5 w-5"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                strokeWidth={2}
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
+                />
+              </svg>
 
-            <span className="ml-3 text-sm font-medium"> Homeworks </span>
-          </a>
+              <span className="ml-3 text-sm font-medium"> Homeworks </span>
+            </a>
+          </Link>
 
-          <a
-            href=""
-            className="flex items-center px-4 py-2 text-gray-300 rounded-lg hover:bg-primary hover:text-white"
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              className="h-5 w-5"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-              strokeWidth={2}
+          <Link href="/schdule">
+            <a
+              href=""
+              className="flex items-center px-4 py-2 text-gray-300 rounded-lg hover:bg-primary hover:text-white"
             >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
-              />
-            </svg>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                className="h-5 w-5"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                strokeWidth={2}
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
+                />
+              </svg>
 
-            <span className="ml-3 text-sm font-medium"> Schedule </span>
-          </a>
+              <span className="ml-3 text-sm font-medium"> Schedule </span>
+            </a>
+          </Link>
 
           <details className="group">
             <summary className="flex items-center px-4 py-2 text-gray-300 rounded-lg cursor-pointer hover:bg-primary hover:text-white">
