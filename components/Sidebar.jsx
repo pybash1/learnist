@@ -28,7 +28,7 @@ export default function Sidebar() {
   };
 
   return (
-    <div className="flex flex-col justify-between h-screen bg-neutral">
+    <div className="flex flex-col justify-between min-h-screen h-full bg-neutral">
       <div className="px-4 py-6">
         <span className="w-32 h-10 rounded-lg text-accent flex items-center justify-center text-lg">
           LEARNIST

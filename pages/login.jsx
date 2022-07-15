@@ -95,7 +95,7 @@ export default function Login() {
             </p>
 
             <div>
-              <label htmlFor="email" className="text-sm font-medium text-white">
+              <label htmlhtmlFor="email" className="text-sm font-medium text-white">
                 Email
               </label>
 
@@ -132,7 +132,7 @@ export default function Login() {
 
             <div>
               <label
-                htmlFor="password"
+                htmlhtmlFor="password"
                 className="text-sm font-medium text-white"
               >
                 Password

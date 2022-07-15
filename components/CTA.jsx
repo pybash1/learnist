@@ -12,7 +12,7 @@ export default function CTA() {
 
         <form className="mt-8 sm:flex">
           <div className="sm:flex-1">
-            <label htmlFor="email" className="sr-only">
+            <label htmlhtmlFor="email" className="sr-only">
               Email
             </label>
 

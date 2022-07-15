@@ -86,7 +86,7 @@ export default function Onboarding() {
             <p className="text-lg font-medium text-white">Sign Up</p>
 
             <div>
-              <label htmlFor="email" className="text-sm font-medium text-white">
+              <label htmlhtmlFor="email" className="text-sm font-medium text-white">
                 Email
               </label>
 
@@ -123,7 +123,7 @@ export default function Onboarding() {
 
             <div>
               <label
-                htmlFor="password"
+                htmlhtmlFor="password"
                 className="text-sm font-medium text-white"
               >
                 Password
