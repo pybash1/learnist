@@ -42,7 +42,7 @@ export default function Homework(props) {
                   {props?.teacher}
                 </li>
                 <li className="inline-block rounded-full text-white text-xs font-medium px-3 py-1.5 bg-accent">
-                  {props?.class}
+                  {props?.className}
                 </li>
                 {today ? (
                   <li className="inline-block rounded-full text-black text-xs font-medium px-3 py-1.5 bg-amber-500">

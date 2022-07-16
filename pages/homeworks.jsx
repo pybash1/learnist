@@ -129,9 +129,9 @@ export default function Homeworks() {
           </div>
         </div>
       )}
-      <div className="grid grid-cols-4 gap-2">
+      <div className="grid grid-cols-5 gap-2">
         <Sidebar />
-        <div className="col-span-3">
+        <div className="col-span-4">
           <div className="pt-10 px-6 font-semibold flex flex-row justify-between">
             <h2 className="text-2xl text-white">Welcome, {user?.username}</h2>
             <Search />
