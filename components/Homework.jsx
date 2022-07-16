@@ -1,13 +1,28 @@
-import { format, compareAsc } from "date-fns";
+import { format } from "date-fns";
 import Link from "next/link";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 export default function Homework(props) {
   const [today, setToday] = useState(false);
+  const [overdue, setOverdue] = useState(false);
+  const [tomorrow, setTomorrow] = useState(false);
 
-  if (props.date.getDate() === new Date().getDate()) {
-    setToday(true);
-  }
+  useEffect(() => {
+    if (props.date.getDate() === new Date().getDate()) {
+      setToday(true);
+    }
+
+    if (props.date.getDate() < new Date().getDate()) {
+      setOverdue(true);
+    }
+
+    const tmrw = new Date()
+    tmrw.setDate(new Date().getDate()+1)
+
+    if (props.date.getDate() === tmrw.getDate()) {
+      setTomorrow(true)
+    }
+  })
 
   return (
     <article className="p-1 shadow-xl rounded-2xl hover:shadow-2xl transition-all ease-in-out">
@@ -30,13 +45,18 @@ export default function Homework(props) {
                   {props?.class}
                 </li>
                 {today ? (
-                  <li className="inline-block rounded-full text-white text-xs font-medium px-3 py-1.5 bg-amber-500">
+                  <li className="inline-block rounded-full text-black text-xs font-medium px-3 py-1.5 bg-amber-500">
                     Due Today
                   </li>
                 ) : null}
-                {compareAsc(new Date(), props?.date) === 1 ? (
+                {overdue ? (
                   <li className="inline-block rounded-full text-white text-xs font-medium px-3 py-1.5 bg-red-500">
                     Overdue
+                  </li>
+                ) : null}
+                {tomorrow ? (
+                  <li className="inline-block rounded-full text-black text-xs font-medium px-3 py-1.5 bg-lime-500">
+                    Due Tomorrow
                   </li>
                 ) : null}
               </ul>

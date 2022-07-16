@@ -16,16 +16,17 @@ export default function Homeworks() {
 
   const [user, setUser] = useState(null);
   const [homeworks, setHomeworks] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   const [isModalHidden, setIsModalHidden] = useState(true);
   const showModal = () => {
     setIsModalHidden(false);
-    console.log("showmodal", isModalHidden);
   };
   const hideModal = () => {
     setIsModalHidden(true);
-    console.log("hidemodal", isModalHidden);
   };
+
+  // console.log(homeworks)
 
   useEffect(() => {
     let token = getCookie("token");
@@ -55,7 +56,14 @@ export default function Homeworks() {
         "Content-Type": "application/json",
         Authorization: "Bearer " + token,
       },
-    }).then((res) => res.json().then((data) => setHomeworks(data)));
+    }).then((res) =>
+      res.json().then((data) => {
+        if (data) {
+          setHomeworks(data);
+          setLoading(false);
+        }
+      })
+    );
   }, []);
 
   useEffect(() => {
@@ -76,7 +84,11 @@ export default function Homeworks() {
     if (success) {
       toast.success(success);
     }
-  });
+  }, [success]);
+
+  // if (loading) {
+  //   return "loading data..."
+  // }
 
   return (
     <div className="bg-primary min-h-screen">
@@ -128,6 +140,20 @@ export default function Homeworks() {
             <Empty onClick={showModal} />
           ) : (
             <>
+              {loading ? (
+                <div
+                  // wire:loading
+                  className="fixed top-0 left-0 right-0 bottom-0 w-full h-screen z-50 overflow-hidden bg-gray-700 opacity-75 flex flex-col items-center justify-center"
+                >
+                  <div className="loader ease-linear rounded-full border-4 border-t-4 border-gray-200 h-12 w-12 mb-4"></div>
+                  <h2 className="text-center text-white text-xl font-semibold">
+                    Loading...
+                  </h2>
+                  <p className="w-1/3 text-center text-white">
+                    This may take a few seconds, please wait.
+                  </p>
+                </div>
+              ) : null}
               <div className="grid grid-cols-2 gap-10 p-10">
                 {homeworks.map((hw, ind) => (
                   <Homework
@@ -136,7 +162,7 @@ export default function Homeworks() {
                     name={hw.name}
                     description={hw.description}
                     teacher={hw.assigned_by}
-                    class={hw.class}
+                    className={hw.class}
                     date={new Date(hw.due)}
                   />
                 ))}
