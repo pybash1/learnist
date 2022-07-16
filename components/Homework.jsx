@@ -1,11 +1,12 @@
 import { format } from "date-fns";
-import Link from "next/link";
+import { useRouter } from "next/router";
 import { useState, useEffect } from "react";
 
 export default function Homework(props) {
   const [today, setToday] = useState(false);
   const [overdue, setOverdue] = useState(false);
   const [tomorrow, setTomorrow] = useState(false);
+  const router = useRouter();
 
   useEffect(() => {
     if (props.date.getDate() === new Date().getDate()) {
@@ -24,10 +25,13 @@ export default function Homework(props) {
     }
   })
 
+  function redirect() {
+    window.location.href = "/homework/"+props.id
+  }
+
   return (
     <article className="p-1 shadow-xl rounded-2xl hover:shadow-2xl transition-all ease-in-out">
-      <Link href={"/homework/" + props?.id}>
-        <a className="flex flex-col justify-end h-full p-6 bg-neutral sm:p-8 rounded-xl hover:bg-opacity-90">
+        <div onClick={redirect} className="cursor-pointer flex flex-col justify-end h-full p-6 bg-neutral sm:p-8 rounded-xl hover:bg-opacity-90">
           <div className="mt-16">
             <p className="text-xs font-medium text-gray-500">
               {props?.description}
@@ -62,8 +66,7 @@ export default function Homework(props) {
               </ul>
             </div>
           </div>
-        </a>
-      </Link>
+        </div>
     </article>
   );
 }
