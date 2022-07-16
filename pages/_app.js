@@ -6,7 +6,7 @@ function MyApp({ Component, pageProps: { session, ...pageProps } }) {
     <>
       <Head>
         <title>Learnist</title>
-        <link rel="icon" href="/favicon.svg" />
+        <link rel="icon" href="/favicon.ico" />
         <meta charSet="UTF-8" />
         <meta name="keywords" content="school,studies,class,homework" />
         <meta
@@ -19,7 +19,7 @@ function MyApp({ Component, pageProps: { session, ...pageProps } }) {
         <meta name="og:title" content="Learnist - Ace your studies" />
         <meta name="og:type" content="studies" />
         <meta name="og:url" content="http://learnist.vercel.app" />
-        <meta name="og:image" content="/favicon.svg" />
+        <meta name="og:image" content="/favicon.ico" />
         <meta name="og:site_name" content="Learnist" />
         <meta
           name="og:description"

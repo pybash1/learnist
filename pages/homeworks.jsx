@@ -130,7 +130,7 @@ export default function Homeworks() {
         </div>
       )}
       <div className="grid grid-cols-5 gap-2">
-        <Sidebar />
+        <Sidebar active={4} />
         <div className="col-span-4">
           <div className="pt-10 px-6 font-semibold flex flex-row justify-between">
             <h2 className="text-2xl text-white">Welcome, {user?.username}</h2>

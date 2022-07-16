@@ -52,7 +52,7 @@ export default function Dashboard() {
         }}
       />
       <div className="grid grid-cols-5 gap-2">
-        <Sidebar />
+        <Sidebar active={2} />
         <div className="col-span-4">
           <div className="pt-10 px-6 font-semibold flex flex-row justify-between">
             <h2 className="text-2xl text-white">To Do&apos;s</h2>

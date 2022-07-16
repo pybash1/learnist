@@ -3,7 +3,7 @@ import { deleteCookie, getCookie } from "cookies-next";
 import { useRouter } from "next/router";
 import Link from "next/link";
 
-export default function Sidebar() {
+export default function Sidebar(props) {
   const [user, setUser] = useState(null);
 
   const router = useRouter();
@@ -36,7 +36,7 @@ export default function Sidebar() {
 
         <nav className="flex flex-col mt-6 space-y-1">
           <Link href="/dashboard">
-            <a className="flex items-center px-4 py-2 text-white bg-primary rounded-lg">
+            <a className={props.active === 0 ? "flex items-center px-4 py-2 text-white bg-primary rounded-lg" : "flex items-center px-4 py-2 text-gray-300 rounded-lg cursor-pointer hover:bg-primary hover:text-white"}>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 className="h-5 w-5"
@@ -57,7 +57,7 @@ export default function Sidebar() {
           </Link>
 
           <details className="group">
-            <summary className="flex items-center px-4 py-2 text-gray-300 rounded-lg cursor-pointer hover:bg-primary hover:text-white">
+            <summary className={props.active === 1 || props.active === 2 || props.active === 3 ? "flex items-center px-4 py-2 text-white bg-primary rounded-lg" : "flex items-center px-4 py-2 text-gray-300 rounded-lg cursor-pointer hover:bg-primary hover:text-white"}>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 className="h-5 w-5"
@@ -96,7 +96,7 @@ export default function Sidebar() {
 
             <nav className="mt-1.5 ml-8 flex flex-col">
               <Link href="/todo">
-                <a className="flex items-center px-4 py-2 text-gray-300 rounded-lg hover:bg-primary hover:text-white">
+                <a className={props.active === 2 ? "flex items-center px-4 py-2 text-white bg-primary rounded-lg" : "flex items-center px-4 py-2 text-gray-300 rounded-lg cursor-pointer hover:bg-primary hover:text-white"}>
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     className="h-5 w-5"
@@ -120,7 +120,7 @@ export default function Sidebar() {
               </Link>
 
               <Link href="/timer">
-                <a className="flex items-center px-4 py-2 text-gray-300 rounded-lg hover:bg-primary hover:text-white">
+                <a className={props.active === 3 ? "flex items-center px-4 py-2 text-white bg-primary rounded-lg" : "flex items-center px-4 py-2 text-gray-300 rounded-lg cursor-pointer hover:bg-primary hover:text-white"}>
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     className="h-5 w-5"
@@ -145,7 +145,7 @@ export default function Sidebar() {
           <Link href="/homeworks">
             <a
               href=""
-              className="flex items-center px-4 py-2 text-gray-300 rounded-lg hover:bg-primary hover:text-white"
+              className={props.active === 4 ? "flex items-center px-4 py-2 text-white bg-primary rounded-lg" : "flex items-center px-4 py-2 text-gray-300 rounded-lg cursor-pointer hover:bg-primary hover:text-white"}
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -169,7 +169,7 @@ export default function Sidebar() {
           <Link href="/schdule">
             <a
               href=""
-              className="flex items-center px-4 py-2 text-gray-300 rounded-lg hover:bg-primary hover:text-white"
+              className={props.active === 5 ? "flex items-center px-4 py-2 text-white bg-primary rounded-lg" : "flex items-center px-4 py-2 text-gray-300 rounded-lg cursor-pointer hover:bg-primary hover:text-white"}
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -191,7 +191,7 @@ export default function Sidebar() {
           </Link>
 
           <details className="group">
-            <summary className="flex items-center px-4 py-2 text-gray-300 rounded-lg cursor-pointer hover:bg-primary hover:text-white">
+            <summary className={props.active === 6 ? "flex items-center px-4 py-2 text-white bg-primary rounded-lg" : "flex items-center px-4 py-2 text-gray-300 rounded-lg cursor-pointer hover:bg-primary hover:text-white"}>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 className="h-5 w-5"
