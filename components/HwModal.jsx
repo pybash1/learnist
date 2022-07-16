@@ -50,12 +50,12 @@ export default function HwModal() {
 
   function handleSubmit(e) {
     e.preventDefault();
-    
+
     if (!name || !teacher || !class_ || !due || !description) {
       toast.error("Feilds cannot be empty!");
       return;
     }
-    
+
     btnSubmit.current.onClick = null;
     btnSubmit.current.onclick = null;
     btnSubmit.current.style.background = "#c4c4c4";
@@ -97,7 +97,7 @@ export default function HwModal() {
       }),
     }).then((res) =>
       res.json().then((data) => {
-        router.push("/homework/" + data.id);
+        window.location.href = "/homework/" + data.id;
       })
     );
   }
