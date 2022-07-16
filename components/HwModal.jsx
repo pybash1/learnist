@@ -1,8 +1,8 @@
 import { eachWeekendOfInterval, format } from "date-fns";
-import { useState } from "react";
+import { useRef, useState } from "react";
 import toast, { Toaster } from "react-hot-toast";
 import { getCookie } from "cookies-next";
-import { useRouter} from "next/router";
+import { useRouter } from "next/router";
 
 export default function HwModal() {
   const [name, setName] = useState("");
@@ -10,6 +10,8 @@ export default function HwModal() {
   const [class_, setClass] = useState("");
   const [due, setDue] = useState("");
   const [description, setDescription] = useState("");
+
+  const btnSubmit = useRef(null);
 
   const router = useRouter();
 
@@ -48,27 +50,56 @@ export default function HwModal() {
 
   function handleSubmit(e) {
     e.preventDefault();
+    
     if (!name || !teacher || !class_ || !due || !description) {
       toast.error("Feilds cannot be empty!");
       return;
     }
+    
+    btnSubmit.current.onClick = null;
+    btnSubmit.current.onclick = null;
+    btnSubmit.current.style.background = "#c4c4c4";
+    btnSubmit.current.innerHTML = `Adding Homework&nbsp;&nbsp;&nbsp;
+      <svg
+        class="animate-spin -ml-1 mr-3 h-5 w-5 text-white"
+        xmlns="http://www.w3.org/2000/svg"
+        fill="none"
+        viewBox="0 0 24 24"
+      >
+        <circle
+          class="opacity-25"
+          cx="12"
+          cy="12"
+          r="10"
+          stroke="currentColor"
+          stroke-width="4"
+        ></circle>
+        <path
+          class="opacity-75"
+          fill="currentColor"
+          d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
+        ></path>
+      </svg>
+    `;
 
-    fetch(process.env.NEXT_PUBLIC_API_URL+"/homeworks/create", {
-        method: "POST",
-        headers: {
-            "Content-Type":"application/json",
-            "Authorization": "Bearer "+getCookie("token")
-        },
-        body: JSON.stringify({
-            name: name,
-            description: description,
-            assigned_by: teacher,
-            "class_": class_,
-            due: `${due.split("-")[2]}-${due.split("-")[0]}-${due.split("-")[1]}`
-        })
-    }).then(res => res.json().then(data => {
-        router.push("/homework/"+data.id)
-    }))
+    fetch(process.env.NEXT_PUBLIC_API_URL + "/homeworks/create", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: "Bearer " + getCookie("token"),
+      },
+      body: JSON.stringify({
+        name: name,
+        description: description,
+        assigned_by: teacher,
+        class_: class_,
+        due: `${due.split("-")[2]}-${due.split("-")[0]}-${due.split("-")[1]}`,
+      }),
+    }).then((res) =>
+      res.json().then((data) => {
+        router.push("/homework/" + data.id);
+      })
+    );
   }
 
   return (
@@ -134,7 +165,12 @@ export default function HwModal() {
 
           <div className="grid grid-cols-1 gap-4 text-center sm:grid-cols-3">
             <div>
-              <input className="sr-only" id="option1" type="radio" tabIndex="-1" />
+              <input
+                className="sr-only"
+                id="option1"
+                type="radio"
+                tabIndex="-1"
+              />
               {due == format(tmrw, "MM-dd-yyyy") ? (
                 <button
                   type="button"
@@ -159,7 +195,12 @@ export default function HwModal() {
             </div>
 
             <div>
-              <input className="sr-only" id="option2" type="radio" tabIndex="-1" />
+              <input
+                className="sr-only"
+                id="option2"
+                type="radio"
+                tabIndex="-1"
+              />
               {due == format(weekend_, "MM-dd-yyyy") ? (
                 <button
                   type="button"
@@ -168,7 +209,10 @@ export default function HwModal() {
                   className="block w-full p-3 border border-white bg-neutral text-white rounded-lg"
                   tabIndex="0"
                 >
-                  <span className="text-sm font-medium"> Due This Weekend </span>
+                  <span className="text-sm font-medium">
+                    {" "}
+                    Due This Weekend{" "}
+                  </span>
                 </button>
               ) : (
                 <button
@@ -178,7 +222,10 @@ export default function HwModal() {
                   className="block w-full p-3 border border-neutral bg-neutral text-white rounded-lg"
                   tabIndex="0"
                 >
-                  <span className="text-sm font-medium"> Due This Weekend </span>
+                  <span className="text-sm font-medium">
+                    {" "}
+                    Due This Weekend{" "}
+                  </span>
                 </button>
               )}
             </div>
@@ -219,6 +266,7 @@ export default function HwModal() {
 
           <div className="mt-4">
             <button
+              ref={btnSubmit}
               type="submit"
               className="inline-flex items-center justify-center w-full px-5 py-3 text-white bg-accent rounded-lg sm:w-auto"
             >
