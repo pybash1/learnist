@@ -1,7 +1,7 @@
 from fastapi import APIRouter, Depends
 from fastapi.responses import JSONResponse
 from .utils import manager, load_user
-from .db.users import get_user, update_user, delete_user
+from .db.users import update_user, delete_user
 from .models import User
 
 router = APIRouter()

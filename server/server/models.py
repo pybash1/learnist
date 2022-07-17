@@ -1,4 +1,4 @@
-from datetime import date
+from datetime import date, time
 from pydantic import BaseModel
 
 
@@ -13,3 +13,11 @@ class Homework(BaseModel):
     due: date
     class_: str
     assigned_by: str
+
+
+class Class(BaseModel):
+    name: str
+    teacher: str
+    day: str
+    stime: time
+    etime: time
