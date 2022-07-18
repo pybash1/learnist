@@ -7,8 +7,10 @@ import toast, { Toaster } from "react-hot-toast";
 
 export default function Onboarding() {
   const router = useRouter();
-  const [email, setEmail] = useState("");
+  const { plan } = router.query;
+  const [email, setEmail] = useState(router.query.email || "");
   const [password, setPassword] = useState("");
+  const plan_ = plan == 0 ? "Free" : plan == 1 ? "Teacher" : "Free";
 
   const signup = (e) => {
     e.preventDefault();
@@ -36,8 +38,6 @@ export default function Onboarding() {
     );
   };
 
-  const { plan } = router.query;
-  const plan_ = plan == 0 ? "Free" : plan == 1 ? "Teacher" : "Free";
 
   useEffect(() => {
     let token = getCookie("token");

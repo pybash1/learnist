@@ -1,4 +1,15 @@
+import { useRouter } from "next/router";
+import { useState } from "react";
+
 export default function CTA() {
+  const router = useRouter();
+  const [email, setEmail] = useState("");
+
+  function onboard(e) {
+    e.preventDefault();
+    router.push("/onboarding?email="+email)
+  }
+
   return (
     <aside className="p-12 bg-primary sm:p-16 lg:p-24">
       <div className="max-w-xl mx-auto text-center">
@@ -18,13 +29,16 @@ export default function CTA() {
 
             <input
               type="email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
               placeholder="john.doe@yourschool.edu"
               className="w-full p-3 text-white bg-gray-800 border-2 border-gray-700 rounded-lg"
             />
           </div>
 
           <button
-            type="submit"
+            type="button"
+            onClick={onboard}
             className="flex items-center justify-between w-full px-5 py-3 mt-4 font-medium text-white bg-accent rounded-lg sm:w-auto sm:mt-0 sm:ml-4 hover:bg-accent/75 transition ease-in-out"
           >
             Sign up
