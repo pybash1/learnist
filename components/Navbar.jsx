@@ -6,7 +6,7 @@ export default function Navbar() {
       <div className="max-w-screen-xl p-4 mx-auto">
         <div className="flex items-center justify-between space-x-4 lg:space-x-10">
           <div className="flex lg:w-0 lg:flex-1">
-            <div className="text-accent">LEARNIST</div>
+            <Link href="/"><a className="text-accent"><img src="/logo.png" width="100" height="100" /></a></Link>
           </div>
 
           <nav className="hidden space-x-8 text-sm font-medium md:flex">

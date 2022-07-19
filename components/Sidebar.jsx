@@ -30,9 +30,13 @@ export default function Sidebar(props) {
   return (
     <div className="flex flex-col justify-between min-h-screen h-full bg-neutral">
       <div className="px-4 py-6">
-        <span className="w-32 h-10 rounded-lg text-accent flex items-center justify-center text-lg">
-          LEARNIST
-        </span>
+        <Link href="/dashboard">
+          <a>  
+            <span className="w-32 h-10 rounded-lg text-accent flex items-center justify-center text-lg">
+              <img src="/logo.png" />
+            </span>
+          </a>
+        </Link>
 
         <nav className="flex flex-col mt-6 space-y-1">
           <Link href="/dashboard">
@@ -144,7 +148,6 @@ export default function Sidebar(props) {
 
           <Link href="/homeworks">
             <a
-              href=""
               className={props.active === 4 ? "flex items-center px-4 py-2 text-white bg-primary rounded-lg" : "flex items-center px-4 py-2 text-gray-300 rounded-lg cursor-pointer hover:bg-primary hover:text-white"}
             >
               <svg
@@ -166,9 +169,8 @@ export default function Sidebar(props) {
             </a>
           </Link>
 
-          <Link href="/schdule">
+          <Link href="/schedule">
             <a
-              href=""
               className={props.active === 5 ? "flex items-center px-4 py-2 text-white bg-primary rounded-lg" : "flex items-center px-4 py-2 text-gray-300 rounded-lg cursor-pointer hover:bg-primary hover:text-white"}
             >
               <svg
@@ -287,7 +289,7 @@ export default function Sidebar(props) {
         >
           <img
             className="object-cover w-10 h-10 rounded-full"
-            src="https://api.lorem.space/image/face?hash=esw9byff"
+            src={`https://avatars.dicebear.com/api/micah/${user?.email}.svg`}
             alt="pfp"
           />
 
