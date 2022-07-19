@@ -73,27 +73,27 @@ export default function Schedule({ classes }) {
 
   if (classes.length <= 0) {
     return (
-      <div class="relative p-8 text-center border border-neutral bg-neutral rounded-lg">
-        <h2 class="text-2xl font-medium text-white">No Classes Today!</h2>
+      <div className="relative p-8 text-center border border-neutral bg-neutral rounded-lg">
+        <h2 className="text-2xl font-medium text-white">No Classes Today!</h2>
 
-        <p class="mt-4 text-sm text-gray-500">
+        <p className="mt-4 text-sm text-gray-500">
           You don&apos;t have any classes scheduled for today! Either add a new
           class or enjoy your holiday!
         </p>
 
-        <button class="inline-flex items-center px-5 py-3 mt-8 font-medium text-white bg-accent rounded-lg hover:bg-accent/75 transition ease-in-out">
+        <button className="inline-flex items-center px-5 py-3 mt-8 font-medium text-white bg-accent rounded-lg hover:bg-accent/75 transition ease-in-out">
           Schedule a class
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
             viewBox="0 0 24 24"
             stroke="currentColor"
-            class="flex-shrink-0 w-4 h-4 ml-3"
+            className="flex-shrink-0 w-4 h-4 ml-3"
           >
             <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth="2"
               d="M14 5l7 7m0 0l-7 7m7-7H3"
             />
           </svg>
