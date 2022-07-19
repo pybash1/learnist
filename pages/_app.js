@@ -6,7 +6,7 @@ function MyApp({ Component, pageProps: { session, ...pageProps } }) {
     <>
       <Head>
         <title>Learnist</title>
-        <link rel="icon" href="/favicon.ico" />
+        <link rel="icon" href="/favicon.png" />
         <meta charSet="UTF-8" />
         <meta name="keywords" content="school,studies,class,homework" />
         <meta

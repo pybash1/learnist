@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { useRouter } from "next/router";
 import { getCookie } from "cookies-next";
 import Sidebar from "../components/Sidebar";
@@ -10,9 +10,6 @@ export default function Dashboard() {
   const router = useRouter();
 
   const { success } = router.query;
-
-  const [error, setError] = useState("");
-  const [timer, setTimer] = useState(0);
 
   useEffect(() => {
     let token = getCookie("token");
