@@ -1,3 +1,4 @@
+import json
 from fastapi import APIRouter, Depends
 from fastapi.responses import JSONResponse
 from .models import Class
@@ -28,11 +29,24 @@ def update(class_: Class, user=Depends(manager)):
     return JSONResponse({"msg":"updated schedule successfully"}, 200)
 
 
-@router.get("/schedule")
-def get(user=Depends(manager)):
+@router.get("/schedule/{day}")
+def get(day: int, user=Depends(manager)):
     res = get_schedule(user.email)
 
     if res == -1:
         return JSONResponse({"error": "fields cannot be empty"}, 400)
+    
+    if day not in [0, 1, 2, 3, 4, 5, 6]:
+        return JSONResponse({"error": "invalid day"}, 400)
 
-    return JSONResponse(res, 200)
+    days = {
+        0: res[-1],
+        1: res[1],
+        2: res[2],
+        3: res[3],
+        4: res[4],
+        5: res[5],
+        6: res[6]
+    }
+
+    return JSONResponse(json.loads(days[day]), 200)
