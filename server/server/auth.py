@@ -2,7 +2,7 @@ import bcrypt
 from fastapi import APIRouter, Depends
 from fastapi.responses import JSONResponse
 
-from server.server.db.classes import create_schedule
+from .db.classes import create_schedule
 from .db.users import create_user
 from .models import User
 from .utils import manager, load_user
