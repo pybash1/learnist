@@ -121,7 +121,7 @@ export default function Homeworks() {
         </svg>
       </button>
       {!isModalHidden && (
-        <div className="absolute top-0 right-0 left-0 bottom-0 bg-neutral bg-opacity-60 backdrop-blur">
+        <div className="absolute top-0 right-0 left-0 bottom-0 bg-neutral bg-opacity-60 backdrop-blur z-50">
           <div className="flex items-center justify-center h-full">
             <OutsideClickHandler onOutsideClick={hideModal}>
               <HwModal />

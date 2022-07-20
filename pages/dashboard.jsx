@@ -9,6 +9,7 @@ import Timeline from "../components/Timeline";
 
 export default function Dashboard() {
   const router = useRouter();
+  const [schedule, setSchedule] = useState([]);
 
   const { success } = router.query;
 
@@ -33,6 +34,42 @@ export default function Dashboard() {
       router.push("/login");
     }
   });
+
+  useEffect(() => {
+    fetch(
+      process.env.NEXT_PUBLIC_API_URL + "/classes/schedule/" + new Date().getDay().toString(),
+      {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: "Bearer " + getCookie("token"),
+        },
+      }
+    ).then((res) =>
+      res.json().then((data) => {
+        if (!data.error) {
+          let sched = [];
+          data.forEach((elem) => {
+            let origSH = elem.stime.split(":")[0];
+            let origSM = elem.stime.split(":")[1];
+            let origEH = elem.etime.split(":")[0];
+            let origEM = elem.etime.split(":")[1];
+            let i = elem;
+            i.stime = new Date();
+            i.stime.setHours(origSH);
+            i.stime.setMinutes(origSM);
+            i.etime = new Date();
+            i.etime.setHours(origEH);
+            i.etime.setMinutes(origEM);
+            sched.push(i);
+          });
+          setSchedule(sched);
+        } else {
+          toast.error(data.error);
+        }
+      })
+    );
+  }, []);
 
   useEffect(() => {
     let token = getCookie("token");
@@ -79,26 +116,7 @@ export default function Dashboard() {
               </h1>
               <div className="py-8 pr-10 pl-6 grid grid-cols-1 gap-4">
                 <Timeline
-                  classes={[
-                    {
-                      name: "Mathematics",
-                      teacher: "Mr. Maths Teacher",
-                      stime: new Date(2022, 6, 11, 16, 30, 0, 0),
-                      etime: new Date(2022, 6, 11, 17, 40, 0, 0),
-                    },
-                    {
-                      name: "Computer Science",
-                      teacher: "Mr. C. S. Teacher",
-                      stime: new Date(2022, 6, 11, 15, 0, 0, 0),
-                      etime: new Date(2022, 6, 11, 15, 30, 0, 0),
-                    },
-                    {
-                      name: "Science",
-                      teacher: "Mr. P. C. Biology",
-                      stime: new Date(),
-                      etime: new Date(),
-                    },
-                  ]}
+                  classes={schedule}
                 />
               </div>
             </div>

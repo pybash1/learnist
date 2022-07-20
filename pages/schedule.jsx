@@ -5,10 +5,19 @@ import Sidebar from "../components/Sidebar";
 import toast, { Toaster } from "react-hot-toast";
 import Search from "../components/Search";
 import Schedule from "../components/Schedule";
+import OutsideClickHandler from "react-outside-click-handler";
+import ClassModal from "../components/ClassModal";
 
 export default function SchedulePage() {
   const router = useRouter();
   const [schedule, setSchedule] = useState([]);
+  const [isModalHidden, setIsModalHidden] = useState(true);
+  const showModal = () => {
+    setIsModalHidden(false);
+  };
+  const hideModal = () => {
+    setIsModalHidden(true);
+  };
 
   const { success } = router.query;
 
@@ -85,6 +94,34 @@ export default function SchedulePage() {
           },
         }}
       />
+      <button
+        onClick={showModal}
+        className="rounded-full bg-accent absolute bottom-4 right-4 p-3"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          className="h-6 w-6 text-white"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+          strokeWidth={2}
+        >
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            d="M12 4v16m8-8H4"
+          />
+        </svg>
+      </button>
+      {!isModalHidden && (
+        <div className="absolute top-0 right-0 left-0 bottom-0 bg-neutral bg-opacity-60 backdrop-blur z-50">
+          <div className="flex items-center justify-center h-full">
+            <OutsideClickHandler onOutsideClick={hideModal}>
+              <ClassModal />
+            </OutsideClickHandler>
+          </div>
+        </div>
+      )}
       <div className="grid grid-cols-5 gap-2">
         <Sidebar active={5} />
         <div className="col-span-4">
