@@ -8,7 +8,13 @@ from . import classes
 
 api = FastAPI()
 
-api.add_middleware(CORSMiddleware, allow_origins=["*"], allow_headers=["*"], allow_methods=["*"], allow_credentials=True)
+api.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],
+    allow_headers=["*"],
+    allow_methods=["*"],
+    allow_credentials=True,
+)
 
 api.include_router(auth.router, tags=["Authentication"])
 api.include_router(users.router, tags=["Users"])

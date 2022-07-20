@@ -35,7 +35,7 @@ def create_schedule(username: str):
         res = [i[0] for i in res]
         if username in res:
             return 1
-        
+
         conn.execute(
             text(
                 """INSERT INTO schedules VALUES (:username, "[]", "[]", "[]", "[]", "[]", "[]", "[]")"""
@@ -79,15 +79,12 @@ def update_schedule(
             "sunday",
         ]
 
-        sched = json.loads(res[0][days.index(day)+1])
+        sched = json.loads(res[0][days.index(day) + 1])
 
         new_sched = sched
-        new_sched.append({
-            "name": name,
-            "teacher": teacher,
-            "stime": str(stime),
-            "etime": str(etime)
-        })
+        new_sched.append(
+            {"name": name, "teacher": teacher, "stime": str(stime), "etime": str(etime)}
+        )
 
         query = f"UPDATE schedules SET {day} = :newsched WHERE username = :username"
 
@@ -111,6 +108,7 @@ def get_schedule(username: str):
 
     with engine.connect() as conn:
         res = conn.execute(
-            text("SELECT * FROM schedules WHERE username = :username"), [{"username": username}]
+            text("SELECT * FROM schedules WHERE username = :username"),
+            [{"username": username}],
         ).all()
         return res[0]
