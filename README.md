@@ -8,17 +8,15 @@ A learnist is an all in one open source platform to manage your studies, homewor
 
 ## Features
 
-- 🚀Open Source
-- 🌐Easy to use
-- 🕶️Dark mode
-- 💻Cross platform
+- 🚀 Open Source
+- 🌐 Easy to use
+- 🕶️ Dark mode
+- 💻 Cross platform
 
+> Made as part of the Hashnode x PlanetScale Hackathon
 
 ## Badges
 [![MIT License](https://img.shields.io/apm/l/atomic-design-ui.svg?)](https://github.com/tterb/atomic-design-ui/blob/master/LICENSEs)
-## Demo
-
-Insert gif or link to demo
 
 
 ## Roadmap
@@ -36,7 +34,7 @@ Insert gif or link to demo
 
 **Client:** NextJS, TailwindCSS
 
-**Server:** FastAPI, PlanetScale
+**Server:** FastAPI, [PlanetScale](https://planetscale.com)
 ## Authors
 
 - [@pybash1](https://www.github.com/pybash1)
