@@ -4,7 +4,7 @@ export default function Features() {
   return (
     <section>
       <div className="max-w-screen-xl px-4 py-16 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-y-8 lg:gap-x-16 lg:items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-y-8 lg:gap-x-16 ">
           <div className="max-w-lg mx-auto text-center lg:text-left lg:mx-0">
             <h2 className="text-3xl font-bold sm:text-4xl text-white">
               Ace your exams
@@ -41,8 +41,7 @@ export default function Features() {
 
           <div className="grid grid-cols-2 gap-4 sm:grid-cols-3">
             <a
-              className="block p-4 border border-neutral shadow-sm rounded-xl focus:outline-none focus:ring hover:border-gray-200 hover:ring-1 hover:ring-gray-200"
-              href="/accountant"
+              className="block p-4 border border-neutral bg-neutral shadow-sm rounded-xl focus:outline-none focus:ring hover:border-gray-500 transition-all ease-in-out"
             >
               <span className="inline-block p-3 rounded-lg bg-gray-50">
                 <svg
@@ -71,8 +70,7 @@ export default function Features() {
             </a>
 
             <a
-              className="block p-4 border border-neutral shadow-sm rounded-xl focus:outline-none focus:ring hover:border-gray-200 hover:ring-1 hover:ring-gray-200"
-              href="/accountant"
+              className="block p-4 border border-neutral bg-neutral shadow-sm rounded-xl focus:outline-none focus:ring hover:border-gray-500 transition-all ease-in-out"
             >
               <span className="inline-block p-3 rounded-lg bg-gray-50">
                 <svg
@@ -101,8 +99,7 @@ export default function Features() {
             </a>
 
             <a
-              className="block p-4 border border-neutral shadow-sm rounded-xl focus:outline-none focus:ring hover:border-gray-200 hover:ring-1 hover:ring-gray-200"
-              href="/accountant"
+              className="block p-4 border border-neutral bg-neutral shadow-sm rounded-xl focus:outline-none focus:ring hover:border-gray-500 transition-all ease-in-out"
             >
               <span className="inline-block p-3 rounded-lg bg-gray-50">
                 <svg
@@ -131,8 +128,7 @@ export default function Features() {
             </a>
 
             <a
-              className="block p-4 border border-neutral shadow-sm rounded-xl focus:outline-none focus:ring hover:border-gray-200 hover:ring-1 hover:ring-gray-200"
-              href="/accountant"
+              className="block p-4 border border-neutral bg-neutral shadow-sm rounded-xl focus:outline-none focus:ring hover:border-gray-500 transition-all ease-in-out"
             >
               <span className="inline-block p-3 rounded-lg bg-gray-50">
                 <svg
@@ -161,8 +157,7 @@ export default function Features() {
             </a>
 
             <a
-              className="block p-4 border border-neutral shadow-sm rounded-xl focus:outline-none focus:ring hover:border-gray-200 hover:ring-1 hover:ring-gray-200"
-              href="/accountant"
+              className="block p-4 border border-neutral bg-neutral shadow-sm rounded-xl focus:outline-none focus:ring hover:border-gray-500 transition-all ease-in-out"
             >
               <span className="inline-block p-3 rounded-lg bg-gray-50">
                 <svg
@@ -191,8 +186,7 @@ export default function Features() {
             </a>
 
             <a
-              className="block p-4 border border-neutral shadow-sm rounded-xl focus:outline-none focus:ring hover:border-gray-200 hover:ring-1 hover:ring-gray-200"
-              href="/accountant"
+              className="block p-4 border border-neutral bg-neutral shadow-sm rounded-xl focus:outline-none focus:ring hover:border-gray-500 transition-all ease-in-out"
             >
               <span className="inline-block p-3 rounded-lg bg-gray-50">
                 <svg

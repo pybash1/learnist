@@ -20,6 +20,9 @@ export default function Footer() {
           </div>
         </div>
       </footer>
+      <div className="mx-20">
+        <div className="h-1 w-full bg-gray-600 rounded-full"></div>
+      </div>
       <footer className="bg-primary">
         <div className="max-w-5xl px-4 py-16 mx-auto sm:px-6 lg:px-8">
           <div className="flex justify-center text-accent">
@@ -37,7 +40,7 @@ export default function Footer() {
 
             <ul className="flex flex-wrap justify-center gap-6 md:gap-8 lg:gap-12">
               <li>
-                <a className="text-white transition hover:text-white/75" target="blank_" rel="noreferrer noopener" href="https://github.com/pybash1">
+                <a className="text-white transition hover:text-white/75" target="blank_" rel="noreferrer noopener" href="https://github.com/ax-a-dev">
                   About
                 </a>
               </li>
@@ -94,7 +97,7 @@ export default function Footer() {
 
             <li>
               <a
-                href="https://github.com/pybash1/learnist"
+                href="https://github.com/ax-a-dev/learnist"
                 rel="noopener noreferrer"
                 target="_blank"
                 className="text-white transition hover:text-white/75"

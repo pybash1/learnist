@@ -11,9 +11,9 @@ export default function CTA() {
   }
 
   return (
-    <aside className="p-12 bg-primary sm:p-16 lg:p-24">
+    <aside className="p-10 bg-primary sm:p-16 lg:p-10">
       <div className="max-w-xl mx-auto text-center">
-        <p className="text-sm font-medium text-gray-300">
+        <p className="text-md font-medium text-gray-300">
           Don&apos;t get overwhelmed with your studies!
         </p>
 

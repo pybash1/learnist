@@ -20,11 +20,9 @@ export default function Navbar() {
                 Pricing
               </a>
             </Link>
-            <Link href="https://github.com/pybash1">
-              <a className="text-white hover:text-accent transition ease-in-out">
-                About
-              </a>
-            </Link>
+            <a href="https://github.com/ax-a-dev" target="blank_" className="text-white hover:text-accent transition ease-in-out">
+              About
+            </a>
           </nav>
 
           <div className="items-center justify-end flex-1 hidden space-x-4 sm:flex">

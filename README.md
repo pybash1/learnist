@@ -37,7 +37,7 @@ A learnist is an all in one open source platform to manage your studies, homewor
 **Server:** FastAPI, [PlanetScale](https://planetscale.com)
 ## Authors
 
-- [@pybash1](https://www.github.com/pybash1)
+- [@ax-a-dev](https://www.github.com/ax-a-dev)
 
 
 ## License
