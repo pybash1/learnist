@@ -14,7 +14,7 @@ export default function Testimonials() {
 
             <blockquote className="sm:col-span-2">
               <p className="text-xl font-medium sm:text-2xl text-white">
-                looks good, does what it's supposed to do
+                looks good, does what it&apos;s supposed to do
               </p>
 
               <cite className="inline-flex items-center mt-8 not-italic">
