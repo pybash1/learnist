@@ -31,7 +31,7 @@ def create_schedule(username: str):
         return -1
 
     with engine.connect() as conn:
-        res = conn.execute(text("SELECT * FROM users")).all()
+        res = conn.execute(text("SELECT * FROM schedules")).all()
         res = [i[0] for i in res]
         if username in res:
             return 1

@@ -28,9 +28,11 @@ export default function ToDo() {
     } else {
       localStorage.setItem(
         "todos",
-        JSON.parse(localStorage.getItem("todos")).concat([
-          { name: name, desc: desc, status: 0 },
-        ])
+        JSON.stringify(
+          JSON.parse(localStorage.getItem("todos")).concat([
+            { name: name, desc: desc, status: 0 },
+          ])
+        )
       );
       todos.push({ name: name, desc: desc, status: 0 });
       setName("");
