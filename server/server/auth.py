@@ -19,7 +19,7 @@ def register(user: User):
         return JSONResponse({"error": "user already exists"}, 409)
 
     user_ = create_user(user.email, user.password)
-    create_schedule(user.email)
+    print(create_schedule(user.email))
     if user_ == -1:
         return JSONResponse({"error": "missing email or password"}, 422)
     elif user == 1:
