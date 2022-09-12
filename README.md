@@ -35,7 +35,7 @@ A learnist is an all in one open source platform to manage your studies, homewor
 
 **Client:** NextJS, TailwindCSS
 
-**Server:** FastAPI, [PlanetScale](https://planetscale.com)
+**Server:** FastAPI, [Deta](https://deta.sh)
 ## Authors
 
 - [@ax-a-dev](https://www.github.com/ax-a-dev)

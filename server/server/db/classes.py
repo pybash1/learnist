@@ -8,23 +8,6 @@ load_dotenv()
 
 engine = create_engine(os.getenv("DB_URI"), future=True)
 
-"""
-schedules table schema
-CREATE TABLE `schedules` (
-	`username` varchar(255) NOT NULL,
-	`monday` json,
-	`tuesday` json,
-	`wednesday` json,
-	`thursday` json,
-	`friday` json,
-	`saturday` json,
-	`sunday` json,
-	PRIMARY KEY (`username`)
-) ENGINE InnoDB,
-  CHARSET utf8mb4,
-  COLLATE utf8mb4_0900_ai_ci;
-"""
-
 
 def create_schedule(username: str):
     if not username:

@@ -7,22 +7,6 @@ load_dotenv()
 
 engine = create_engine(os.getenv("DB_URI"), future=True)
 
-"""
-homeworks table schema
-CREATE TABLE `homeworks` (
-	`id` int NOT NULL AUTO_INCREMENT,
-	`name` text,
-	`description` mediumtext,
-	`due` date,
-	`class` text,
-	`assigned_by` text,
-	`user` text,
-	PRIMARY KEY (`id`)
-) ENGINE InnoDB,
-  CHARSET utf8mb4,
-  COLLATE utf8mb4_0900_ai_ci;
-"""
-
 
 def create_hw(
     name: str, description: str, due: date, class_: str, assigned_by: str, user: str

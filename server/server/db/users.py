@@ -8,17 +8,6 @@ load_dotenv()
 
 engine = create_engine(os.getenv("DB_URI"), future=True)
 
-"""
-users table schema
-CREATE TABLE `users` (
-	`email` varchar(255) NOT NULL,
-	`password` longblob,
-	PRIMARY KEY (`email`)
-) ENGINE InnoDB,
-  CHARSET utf8mb4,
-  COLLATE utf8mb4_0900_ai_ci;
-"""
-
 
 def create_user(email: str, password: str):
     if not email or not password:
