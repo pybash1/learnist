@@ -11,6 +11,7 @@ fastapi-login = "^1.8.2"
 python-dotenv = "^0.20.0"
 SQLAlchemy = "^1.4.39"
 bcrypt = "^3.2.2"
+odetam = "^1.2.0"
 
 [tool.poetry.dev-dependencies]
 pytest = "^5.2"
