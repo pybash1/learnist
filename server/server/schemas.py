@@ -13,6 +13,8 @@ class LearnistHomework(DetaModel):
     due: date
     class_: str
     assigned_by: str
+    done: bool
+    user: str
 
 
 class LearnistClass(DetaModel):
