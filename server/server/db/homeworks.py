@@ -123,6 +123,9 @@ def delete_hw(id_: int):
     if not id_:
         return -1
 
+    LearnistHomework.get(id_).delete()
+    return 0
+
     # with engine.connect() as conn:
     #     conn.execute(text("DELETE FROM homeworks WHERE id = :id"), [{"id": id_}])
     #     conn.commit()
@@ -133,26 +136,32 @@ def get_hw(id_: str):
     if not id_:
         return None
 
-    with engine.connect() as conn:
-        res = conn.execute(
-            text("SELECT * FROM homeworks WHERE id = :id"), [{"id": id_}]
-        ).all()
-        try:
-            return res[0]
-        except IndexError:
-            return None
+    return LearnistHomework.get(id_)
+
+    # with engine.connect() as conn:
+    #     res = conn.execute(
+    #         text("SELECT * FROM homeworks WHERE id = :id"), [{"id": id_}]
+    #     ).all()
+    #     try:
+    #         return res[0]
+    #     except IndexError:
+    #         return None
 
 
 def get_hws(limit: int = None):
-    if limit is not None:
-        with engine.connect() as conn:
-            res = conn.execute(
-                text("SELECT * FROM homeworks LIMIT :limit"), [{"limit": limit}]
-            ).all()
-            return res
-    else:
-        with engine.connect() as conn:
-            res = conn.execute(
-                text("SELECT * FROM homeworks"), [{"limit": limit}]
-            ).all()
-            return res
+    if limit:
+        return LearnistHomework.get_all()[:limit]
+    return LearnistHomework.get_all()
+    
+    # if limit is not None:
+    #     with engine.connect() as conn:
+    #         res = conn.execute(
+    #             text("SELECT * FROM homeworks LIMIT :limit"), [{"limit": limit}]
+    #         ).all()
+    #         return res
+    # else:
+    #     with engine.connect() as conn:
+    #         res = conn.execute(
+    #             text("SELECT * FROM homeworks"), [{"limit": limit}]
+    #         ).all()
+    #         return res
