@@ -1,4 +1,5 @@
 from datetime import date, time
+from typing import Dict, List
 from odetam import DetaModel
 
 
@@ -23,3 +24,14 @@ class LearnistClass(DetaModel):
     day: str
     stime: time
     etime: time
+
+
+class LearnistSchedule(DetaModel):
+    user: str
+    monday: List[Dict]
+    tuesday: List[Dict]
+    wednesday: List[Dict]
+    thursday: List[Dict]
+    friday: List[Dict]
+    saturday: List[Dict]
+    sunday: List[Dict]
